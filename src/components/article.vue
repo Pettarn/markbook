@@ -1,9 +1,9 @@
 <template>
     <section>
         <!-- 列表渲染出notes，有search则用过滤器筛选符合条件的note，并且设置路由，用户可以把该note点开 -->
-        <router-link v-for="(note, index) in filtered_notes" :key="note.date" to="{path: 'view', params: {note.date}}">
+        <router-link v-for="(note, index) in filtered_notes" :key="note.date" to="{path: 'view', params: { id: note.date }}">
             <!-- 对该note进行编辑==========图标 -->
-            <router-link to="{path: '/create/', params: {note.date}}">Edit</router-link>
+            <router-link to="{path: '/create/', params: { id: note.date }}">Edit</router-link>
 
             <!-- 把该note删除=========图标 -->
             <input type="button" @click="removeNote(index)">
